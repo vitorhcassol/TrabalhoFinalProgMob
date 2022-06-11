@@ -17,4 +17,4 @@ O usuario deverá ser capaz de registrar 500 transações diferentes
 
 O usuario deverá ser capaz de adicionar uma foto tirada na hora atravez da camera ou buscar uma foto na galeria para colocar no perfil
 
-O usuario deverá ser capaz de filtrar as transações de acordo com o tipo ou nome da tranzação
+O usuario deverá ser capaz de filtrar as transações de acordo com o tipo ou nome da transação
