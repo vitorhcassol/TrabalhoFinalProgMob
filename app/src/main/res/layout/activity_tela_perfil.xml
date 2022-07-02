@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TelaPerfil"
+    android:background="#013794">
+
+    <Button
+        android:id="@+id/buttonHistorico"
+        android:layout_width="162dp"
+        android:layout_height="188dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="240dp"
+        android:background="@drawable/hist"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        app:layout_constraintStart_toEndOf="@+id/buttonEdit"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonEdit"
+        android:layout_width="162dp"
+        android:layout_height="188dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="240dp"
+        android:background="@drawable/edi"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/Add"
+        android:layout_width="162dp"
+        android:layout_height="188dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/adi"
+        app:layout_constraintEnd_toStartOf="@+id/Branco"
+        app:layout_constraintTop_toBottomOf="@+id/buttonEdit" />
+
+    <Button
+        android:id="@+id/Branco"
+        android:layout_width="162dp"
+        android:layout_height="188dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/card"
+        app:layout_constraintEnd_toEndOf="@+id/buttonHistorico"
+        app:layout_constraintTop_toBottomOf="@+id/buttonHistorico" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

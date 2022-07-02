@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraint1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#013794"
+    tools:context=".TelaLogin"
+    android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="362dp"
+        android:layout_height="563dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="80dp"
+        android:background="#EBE8E9"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textBemVindo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="136dp"
+        android:layout_marginBottom="40dp"
+        android:fontFamily="@font/dm_sans"
+        android:text="BEM VINDO!"
+        android:textColor="#EBE8E9"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textEasy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="133dp"
+        android:layout_marginTop="48dp"
+        android:fontFamily="@font/dm_sans"
+        android:text="Easy Financy"
+        android:textColor="#EBE8E9"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textRealize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/dm_sans"
+        android:text="REALIZE O LOGIN"
+        android:textColor="#030302"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="92dp"
+        android:fontFamily="@font/dm_sans"
+        android:text="USERNAME"
+        android:textColor="#030302"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/textRealize" />
+
+    <TextView
+        android:id="@+id/textSenha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="72dp"
+        android:fontFamily="@font/dm_sans"
+        android:text="SENHA"
+        android:textColor="#030302"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textUser" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textInputEditText2"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:hint="hint"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/textUser" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textInputEditText"
+        android:layout_width="220dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:hint="hint"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/textSenha" />
+
+    <Button
+        android:id="@+id/buttonLogin"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="104dp"
+        android:background="@drawable/corners"
+        android:text="Login"
+        android:textColor="#FBF6F6"
+        android:textColorHint="#000000"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/textInputEditText" />
+
+    <Button
+        android:id="@+id/buttonCadastro"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="68dp"
+        android:background="@drawable/corners"
+        android:text="CADASTRAR"
+        android:textColor="#FBF6F6"
+        android:textColorHint="#000000"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/buttonLogin" />
+
+    <TextView
+        android:id="@+id/texCadastro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="114dp"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/dm_sans"
+        android:text="NÃO POSSUI UMA CONTA?"
+        android:textColor="#030302"
+        android:textSize="10dp"
+        android:textStyle="bold"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        app:layout_constraintBottom_toTopOf="@+id/buttonCadastro"
+        app:layout_constraintStart_toStartOf="@+id/textView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
