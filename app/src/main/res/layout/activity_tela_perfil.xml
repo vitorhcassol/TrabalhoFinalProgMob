@@ -132,4 +132,14 @@
         app:layout_constraintStart_toStartOf="@+id/buttonEdit"
         app:layout_constraintTop_toBottomOf="@+id/textPerfil" />
 
+    <Button
+        android:id="@+id/ButtonChangeImage"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="217dp"
+        android:layout_marginTop="24dp"
+        android:background="#00000000"
+        app:layout_constraintStart_toStartOf="@+id/textPerfil"
+        app:layout_constraintTop_toTopOf="@+id/textPerfil" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
