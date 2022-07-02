@@ -18,3 +18,6 @@ O usuario deverá ser capaz de registrar 500 transações diferentes
 O usuario deverá ser capaz de adicionar uma foto tirada na hora atravez da camera ou buscar uma foto na galeria para colocar no perfil
 
 O usuario deverá ser capaz de filtrar as transações de acordo com o tipo ou nome da transação
+
+Mockup com as tela da aplicação
+https://www.figma.com/file/eeOLesAdo76fIQnOeZqBsg/Easy-Financy?node-id=0%3A1
