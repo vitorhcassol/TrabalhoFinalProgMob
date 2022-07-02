@@ -71,4 +71,17 @@
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintStart_toStartOf="@+id/textView" />
 
+    <Button
+        android:id="@+id/buttonFilter"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="36dp"
+        android:background="@drawable/grp"
+        android:textColor="#000000"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        app:layout_constraintEnd_toEndOf="@+id/listaItens"
+        app:layout_constraintTop_toTopOf="@+id/textView"
+        tools:ignore="SpeakableTextPresentCheck" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

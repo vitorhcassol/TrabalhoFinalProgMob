@@ -125,7 +125,8 @@
         android:layout_marginTop="32dp"
         android:background="@drawable/box1"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="@+id/textUser" />
+        app:layout_constraintTop_toTopOf="@+id/textUser"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textSenhaCadastra"
@@ -136,7 +137,8 @@
         android:background="@drawable/box1"
         android:password="false"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="@+id/textSenha" />
+        app:layout_constraintTop_toTopOf="@+id/textSenha"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textNomeCadastra"
@@ -146,7 +148,8 @@
         android:layout_marginTop="32dp"
         android:background="@drawable/box1"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="@+id/textNome" />
+        app:layout_constraintTop_toTopOf="@+id/textNome"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textConfirmaCadastra"
@@ -157,7 +160,8 @@
         android:background="@drawable/box1"
         android:password="false"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="@+id/textConfirmaSenha" />
+        app:layout_constraintTop_toTopOf="@+id/textConfirmaSenha"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
