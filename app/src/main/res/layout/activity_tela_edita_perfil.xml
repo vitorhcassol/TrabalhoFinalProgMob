@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#013794"
-    tools:context=".TelaCadastro">
+    tools:context=".Tela_EditaPerfil">
 
 
     <TextView
@@ -34,32 +34,33 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
-        android:id="@+id/textRealizeCadastro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="97dp"
-        android:layout_marginTop="32dp"
-        android:fontFamily="@font/dm_sans"
-        android:text="CADASTRAR"
-        android:textColor="#030302"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="@+id/textView" />
-
-    <TextView
         android:id="@+id/textUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="48dp"
         android:fontFamily="@font/dm_sans"
         android:text="USERNAME"
         android:textColor="#030302"
         android:textSize="18dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="@+id/textRealizeCadastro" />
+        app:layout_constraintTop_toTopOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textBemVindo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="127dp"
+        android:layout_marginBottom="40dp"
+        android:fontFamily="@font/dm_sans"
+        android:text="EDITAR PERFIL"
+        android:textColor="#EBE8E9"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView" />
 
     <TextView
         android:id="@+id/textNome"
@@ -73,7 +74,7 @@
         android:textSize="18dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="@+id/textUserCadastra" />
+        app:layout_constraintTop_toTopOf="@+id/textUserSalvar" />
 
     <TextView
         android:id="@+id/textSenha"
@@ -87,7 +88,7 @@
         android:textSize="18dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="@+id/textNomeCadastra" />
+        app:layout_constraintTop_toTopOf="@+id/textNomeSalvar" />
 
     <TextView
         android:id="@+id/textConfirmaSenha"
@@ -101,16 +102,16 @@
         android:textSize="18dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="@+id/textSenhaCadastra" />
+        app:layout_constraintTop_toTopOf="@+id/textSenhaSalvar" />
 
     <Button
-        android:id="@+id/buttonTelaCadastro"
+        android:id="@+id/buttonTelaSalvar"
         android:layout_width="140dp"
         android:layout_height="50dp"
         android:layout_marginStart="108dp"
         android:layout_marginBottom="12dp"
         android:background="@drawable/corners"
-        android:text="CADASTRAR"
+        android:text="SALVAR"
         android:textColor="#FBF6F6"
         android:textColorHint="#000000"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
@@ -118,44 +119,48 @@
         app:layout_constraintStart_toStartOf="@+id/textView" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textUserCadastra"
+        android:id="@+id/textUserSalvar"
         android:layout_width="320dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/box1"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="@+id/textUser" />
+        app:layout_constraintTop_toTopOf="@+id/textUser"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textSenhaCadastra"
+        android:id="@+id/textSenhaSalvar"
         android:layout_width="320dp"
         android:layout_height="52dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/box1"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="@+id/textSenha" />
+        app:layout_constraintTop_toTopOf="@+id/textSenha"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textNomeCadastra"
+        android:id="@+id/textNomeSalvar"
         android:layout_width="320dp"
         android:layout_height="52dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/box1"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="@+id/textNome" />
+        app:layout_constraintTop_toTopOf="@+id/textNome"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textConfirmaCadastra"
+        android:id="@+id/textConfirmaSalvar"
         android:layout_width="320dp"
         android:layout_height="52dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/box1"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="@+id/textConfirmaSenha" />
+        app:layout_constraintTop_toTopOf="@+id/textConfirmaSenha"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
