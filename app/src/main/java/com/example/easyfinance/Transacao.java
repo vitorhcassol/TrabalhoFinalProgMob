@@ -56,13 +56,6 @@ public class Transacao implements Serializable {
 
     @Override
     public String toString() {
-        return "Transacao{" +
-                "usuario='" + usuario + '\'' +
-                ", nomeTransacao='" + nomeTransacao + '\'' +
-                ", descricao='" + descricao + '\'' +
-                ", data='" + data + '\'' +
-                ", idTransacao=" + idTransacao +
-                ", valor=" + valor +
-                '}';
+        return "Nome:"+nomeTransacao+"\n"+"'"+descricao+"'"+"\n"+"R$:"+valor+",00"+"\n"+"DATA:"+data;
     }
 }
