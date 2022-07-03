@@ -43,14 +43,14 @@ public class Tela_Adicionar extends AppCompatActivity {
                 t.setValor(valor);
                 t.setDescricao(editDesc.getText().toString());
                 t.setData(editData.getText().toString());
-                helper.insereTransacao(t);
+                //helper.insereTransacao(t);
 
                 Toast toast = Toast.makeText(Tela_Adicionar.this,
                         "Transação adicionada com sucesso!",
                         Toast.LENGTH_LONG);
                 toast.show();
 
-                Intent intent = new Intent(Tela_Adicionar.this,TelaPerfil.class);
+                Intent intent = new Intent(Tela_Adicionar.this, TelaPerfil.class);
                 intent.putExtra("chave_user",u);
                 startActivity(intent);
             }

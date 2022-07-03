@@ -89,7 +89,7 @@ public class TelaPerfil extends AppCompatActivity {
         });
 
         txtViewNomeUsuario = findViewById(R.id.NomeUsuario);
-        txtViewNomeUsuario.setText(username + ".");
+        txtViewNomeUsuario.setText(user.getNome() + ".");
     }
 
 

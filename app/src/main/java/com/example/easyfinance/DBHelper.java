@@ -277,11 +277,10 @@ public class DBHelper extends SQLiteOpenHelper {
 
     //lista todas as transação do usuário passado
     public ArrayList<Transacao> listaTransacoes(Usuario u) {
-        String username = u.getUsername();
-        String[] where = new String[]{username};
+        String[] where = new String[]{u.getUsername()};
         String[] coluns={ COL_IDTRANSACAO, COL_NOMETRANSACAO, COL_VALOR, COL_DESCRICAO, COL_DATA, COL_USUARIO};
         Cursor cursor = getReadableDatabase().query(TABLE_TRANSACAO,
-                coluns,"COL_USERNAME = ?", null,null,
+                coluns,"usuario = ?",where,null,
                 null,"upper(nomeTransacao)",null);
         ArrayList<Transacao> listaTransacao = new ArrayList<Transacao>();
         while(cursor.moveToNext()){
@@ -291,12 +290,9 @@ public class DBHelper extends SQLiteOpenHelper {
             t.setValor(cursor.getInt(2));
             t.setDescricao(cursor.getString(3));
             t.setData(cursor.getString(4));
-            t.setUsuario(cursor.getString(4));
+            t.setUsuario(cursor.getString(5));
             listaTransacao.add(t);
         }
         return listaTransacao;
     }
-
-    //String query = String.format("SELECT * FROM %s WHERE %s = ?",
-    //                TABLE_USUARIO, COL_USERNAME);
 }

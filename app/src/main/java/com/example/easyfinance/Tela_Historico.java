@@ -34,24 +34,8 @@ public class Tela_Historico extends AppCompatActivity {
 
 
         viewTransacao = findViewById(R.id.listaItens);
-        ArrayAdapter<Transacao> adapter_spinner = new ArrayAdapter<Transacao>(this, android.R.layout.simple_list_item_1,helper.buscarAllTransactions());
+        ArrayAdapter<Transacao> adapter_spinner = new ArrayAdapter<Transacao>(this, android.R.layout.simple_list_item_1,helper.listaTransacoes(user));
         viewTransacao.setAdapter(adapter_spinner);
 
     }
-
-    /*
-    //Método que preenche o list view com o histórico de transações
-    public void preencheLista(){
-        helper=new DBHelper(Tela_Historico.this);
-        arrayListTransacao = helper.listaTransacoes(user);
-        helper.close();
-        if(viewTransacao!=null){
-            arrayAdapterTransacao = new ArrayAdapter<Transacao>(
-                    Tela_Historico.this,
-                    android.R.layout.simple_list_item_1,
-                    arrayListTransacao);
-            viewTransacao.setAdapter(arrayAdapterTransacao);
-        }
-    }
-    */
 }
