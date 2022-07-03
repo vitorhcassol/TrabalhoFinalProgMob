@@ -108,7 +108,7 @@
         android:id="@+id/buttonTelaSalvar"
         android:layout_width="140dp"
         android:layout_height="50dp"
-        android:layout_marginStart="108dp"
+        android:layout_marginStart="24dp"
         android:layout_marginBottom="12dp"
         android:background="@drawable/corners"
         android:text="SALVAR"
@@ -161,6 +161,20 @@
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toTopOf="@+id/textConfirmaSenha"
         tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/buttonGoToExclui"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/circle"
+        android:text="EXCLUIR"
+        android:textColor="#FBF6F6"
+        android:textColorHint="#000000"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="@+id/textView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
