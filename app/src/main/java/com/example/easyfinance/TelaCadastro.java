@@ -30,6 +30,8 @@ public class TelaCadastro extends AppCompatActivity {
         edtConfirmarSenha = findViewById(R.id.textConfirmaCadastra);
         bttCadastrar = findViewById(R.id.buttonTelaCadastro);
 
+        usuario = new Usuario();
+
         bttCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,7 +68,7 @@ public class TelaCadastro extends AppCompatActivity {
 
             helper.insereUsuario(usuario);
             Toast toast = Toast.makeText(TelaCadastro.this,
-                    "Cadastro realizado com sucesso!", Toast.LENGTH_LONG);
+                    "Usuário cadastrado com sucesso", Toast.LENGTH_LONG);
             toast.show();
             limpar();
         }

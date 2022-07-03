@@ -45,6 +45,7 @@ public class TelaLogin extends AppCompatActivity {
         String password = helper.buscaSenha(user);
         if(senha.equals(password)) {
             Intent intent = new Intent(this, TelaPerfil.class);
+            intent.putExtra("chave_usuario",user);
             startActivity(intent);
         } else {
             Toast toast = Toast.makeText(TelaLogin.this,

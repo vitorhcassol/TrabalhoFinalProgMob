@@ -11,6 +11,9 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class DBHelper extends SQLiteOpenHelper {
 
     // ============ INFORMAÇÕES DO DATABASE =========
@@ -76,7 +79,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     // ======== MÉTODOS DA CLASSE USUARIO ==========
 
-    //Método de cadastro de um usuário
+    //Método de cadastro de um usuário ---- implementar na tela de cadastro
     public void insereUsuario(Usuario u){
         db = this.getWritableDatabase();
         db.beginTransaction();
@@ -94,7 +97,7 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
-    //busca senha
+    //busca senha --- implementar na tela de cadastro
     public String buscaSenha(String username) {
         db=this.getReadableDatabase();
         String query = String.format("SELECT %s FROM %s WHERE %s = ?",
@@ -119,7 +122,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return senha;
     }
 
-    //busca um username
+    //busca um username ---- uso geral
     public Boolean buscarUsername(String username) {
         db = this.getReadableDatabase();
         String query = String.format("SELECT %s FROM %s WHERE %s = ?",
@@ -144,7 +147,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return valor;
     }
 
-    //busca nome do usuário
+    //busca nome do usuário --- implementar na tela de perfil
     public String buscarNomeUsuario(String username) {
         db = this.getReadableDatabase();
         String query = String.format("SELECT %s FROM %s WHERE %s = ?",
@@ -169,6 +172,31 @@ public class DBHelper extends SQLiteOpenHelper {
         return nome;
     }
 
+    //atualiza os dados de um usuário um usuário ---- implementar na tela de editar perfil
+    public long atualizarUsuario (Usuario u) {
+        long retornoDB;
+        db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(COL_USERNAME, u.getNome());
+        values.put(COL_NOME, u.getNome());
+        values.put(COL_SENHA, u.getSenha());
+
+        String[] args = {String.valueOf(u.getUsername())};
+        retornoDB = db.update(TABLE_USUARIO, values, "username=?", args);
+        db.close();
+        return retornoDB;
+    }
+
+    //deleta a conta de um usuario --- implementar na tela de editar perfil
+    public long excluiUsuario (Usuario u) {
+        long retornoDB;
+        db = this.getWritableDatabase();
+        String[] args = {String.valueOf(u.getUsername())};
+        retornoDB = db.delete(TABLE_USUARIO, COL_USERNAME+ "=?", args);
+        return retornoDB;
+    }
+
     // ======== MÉTODOS DA CLASSE TRANSAÇÃO ==========
 
     //insere uma transação no banco
@@ -191,6 +219,24 @@ public class DBHelper extends SQLiteOpenHelper {
         } finally {
             db.endTransaction();
         }
+    }
+
+    //busca transação
+    public ArrayList<Transacao> listaTransacoes() {
+        String[] colunas = {COL_NOMETRANSACAO, COL_VALOR, COL_DESCRICAO, COL_DATA, COL_USUARIO};
+        Cursor cursor = getReadableDatabase().query(TABLE_TRANSACAO, colunas,
+                null, null, null, null, "upper(data)", null);
+        ArrayList<Transacao> lista = new ArrayList<Transacao>();
+        while (cursor.moveToFirst()){
+            Transacao t = new Transacao();
+            t.setIdTransacao(cursor.getInt(0));
+            t.setNomeTransacao(cursor.getString(1));
+            t.setValor(cursor.getInt(2));
+            t.setDescricao(cursor.getString(3));
+            t.setData(cursor.getString(4));
+            t.setUsuario(cursor.getString(5));
+        }
+        return lista;
     }
 
     //
