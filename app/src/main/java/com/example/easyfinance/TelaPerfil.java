@@ -37,6 +37,8 @@ public class TelaPerfil extends AppCompatActivity {
         Bundle args = getIntent().getExtras();
         String username = args.getString("chave_usuario");
 
+        user = helper.buscaUsuario(username);
+
         if (ContextCompat.checkSelfPermission(TelaPerfil.this,
                 Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(TelaPerfil.this,
@@ -56,15 +58,10 @@ public class TelaPerfil extends AppCompatActivity {
             }
         });
 
-        user = helper.buscaUsuario(username);
-        Intent intent = new Intent(TelaPerfil.this,Tela_EditaPerfil.class);
-        intent.putExtra("chave_user",user);
-
         bttEdit = findViewById(R.id.buttonEdit);
         bttEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                user = helper.buscaUsuario(username);
                 Intent intent = new Intent(TelaPerfil.this,Tela_EditaPerfil.class);
                 intent.putExtra("chave_user",user);
                 startActivity(intent);
@@ -75,7 +72,9 @@ public class TelaPerfil extends AppCompatActivity {
         bttHist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeHist();
+                Intent intent = new Intent(TelaPerfil.this,Tela_Historico.class);
+                intent.putExtra("chave_user",user);
+                startActivity(intent);
             }
         });
 
@@ -83,7 +82,6 @@ public class TelaPerfil extends AppCompatActivity {
         bttAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                user = helper.buscaUsuario(username);
                 Intent intent = new Intent(TelaPerfil.this,Tela_Adicionar.class);
                 intent.putExtra("chave_user",user);
                 startActivity(intent);
@@ -92,19 +90,6 @@ public class TelaPerfil extends AppCompatActivity {
 
         txtViewNomeUsuario = findViewById(R.id.NomeUsuario);
         txtViewNomeUsuario.setText(username + ".");
-    }
-
-    private void changeEdit() {
-        Intent intent = new Intent(this, Tela_EditaPerfil.class);
-        startActivity(intent);
-    }
-    private void changeHist() {
-        Intent intent = new Intent(this, Tela_Historico.class);
-        startActivity(intent);
-    }
-    private void changeAdd() {
-        Intent intent = new Intent(this, Tela_Adicionar.class);
-        startActivity(intent);
     }
 
 

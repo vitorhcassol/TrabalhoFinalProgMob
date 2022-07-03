@@ -241,7 +241,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
         try {
             ContentValues values = new ContentValues();
-            values.put(COL_IDTRANSACAO, t.getIdTransacao());
             values.put(COL_NOMETRANSACAO, t.getNomeTransacao());
             values.put(COL_VALOR, t.getValor());
             values.put(COL_DESCRICAO, t.getDescricao());
@@ -256,25 +255,48 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
-    //lista todas as transação
-    public ArrayList<Transacao> listaTransacoes(Usuario u) {
-
-        String[] colunas = {COL_IDTRANSACAO, COL_NOMETRANSACAO, COL_VALOR, COL_DESCRICAO, COL_DATA, COL_USUARIO};
-        Cursor cursor = getReadableDatabase().query(TABLE_TRANSACAO, colunas,
-                null, null, null, null, "upper(data)", null);
-        ArrayList<Transacao> lista = new ArrayList<Transacao>();
-        while (cursor.moveToFirst()){
+    //lista TODAS as transações
+    public ArrayList<Transacao> buscarAllTransactions(){
+        String[] coluns={ COL_IDTRANSACAO, COL_NOMETRANSACAO, COL_VALOR, COL_DESCRICAO, COL_DATA, COL_USUARIO};
+        Cursor cursor = getReadableDatabase().query(TABLE_TRANSACAO,
+                coluns,null,null,null,
+                null,"upper(nomeTransacao)",null);
+        ArrayList<Transacao> listaTransacao = new ArrayList<Transacao>();
+        while(cursor.moveToNext()){
             Transacao t = new Transacao();
             t.setIdTransacao(cursor.getInt(0));
             t.setNomeTransacao(cursor.getString(1));
             t.setValor(cursor.getInt(2));
             t.setDescricao(cursor.getString(3));
             t.setData(cursor.getString(4));
-            t.setUsuario(cursor.getString(5));
-            lista.add(t);
+            t.setUsuario(cursor.getString(4));
+            listaTransacao.add(t);
         }
-        return lista;
+        return listaTransacao;
     }
 
+    //lista todas as transação do usuário passado
+    public ArrayList<Transacao> listaTransacoes(Usuario u) {
+        String username = u.getUsername();
+        String[] where = new String[]{username};
+        String[] coluns={ COL_IDTRANSACAO, COL_NOMETRANSACAO, COL_VALOR, COL_DESCRICAO, COL_DATA, COL_USUARIO};
+        Cursor cursor = getReadableDatabase().query(TABLE_TRANSACAO,
+                coluns,"COL_USERNAME = ?", null,null,
+                null,"upper(nomeTransacao)",null);
+        ArrayList<Transacao> listaTransacao = new ArrayList<Transacao>();
+        while(cursor.moveToNext()){
+            Transacao t = new Transacao();
+            t.setIdTransacao(cursor.getInt(0));
+            t.setNomeTransacao(cursor.getString(1));
+            t.setValor(cursor.getInt(2));
+            t.setDescricao(cursor.getString(3));
+            t.setData(cursor.getString(4));
+            t.setUsuario(cursor.getString(4));
+            listaTransacao.add(t);
+        }
+        return listaTransacao;
+    }
 
+    //String query = String.format("SELECT * FROM %s WHERE %s = ?",
+    //                TABLE_USUARIO, COL_USERNAME);
 }
