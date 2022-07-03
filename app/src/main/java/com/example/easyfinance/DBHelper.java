@@ -248,4 +248,32 @@ public class DBHelper extends SQLiteOpenHelper {
 
     //
 
+    //===============================================================================
+    /**public ArrayList<Transacao> listaTransacoesD(Usuario u) {
+        String nome = u.getNome();
+        String query = String.format("SELECT * FROM %s WHERE %s = ?",TABLE_TRANSACAO, COL_USERNAME);
+        db.beginTransaction();
+        ArrayList<Transacao> lista = new ArrayList<Transacao>();
+        try {
+            Cursor cursor = db.rawQuery(query, new String[]{nome});
+            while (cursor.moveToFirst()){
+                Transacao t = new Transacao();
+                t.setIdTransacao(cursor.getInt(0));
+                t.setNomeTransacao(cursor.getString(1));
+                t.setValor(cursor.getInt(2));
+                t.setDescricao(cursor.getString(3));
+                t.setData(cursor.getString(4));
+                t.setUsuario(cursor.getString(5));
+                lista.add(t);
+                }
+
+        } catch (Exception e){
+            Log.d(TAG, "Erro");
+        } finally {
+            db.endTransaction();
+        }
+
+        return lista;
+    }**/
+    //=================================================================================
 }
