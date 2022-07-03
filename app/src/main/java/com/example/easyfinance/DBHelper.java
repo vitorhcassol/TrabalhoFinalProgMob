@@ -97,7 +97,7 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
-    //busca senha --- implementar na tela de cadastro
+    //busca senha --- implementar na tela de cadastro e login
     public String buscaSenha(String username) {
         db=this.getReadableDatabase();
         String query = String.format("SELECT %s FROM %s WHERE %s = ?",
@@ -118,6 +118,8 @@ public class DBHelper extends SQLiteOpenHelper {
             }
         } catch (Exception e) {
             Log.d(TAG, "Usuário não encontrado");
+        } finally {
+            db.endTransaction();
         }
         return senha;
     }
@@ -143,6 +145,8 @@ public class DBHelper extends SQLiteOpenHelper {
             }
         }catch (Exception e){
             Log.d(TAG, "Usuário não encontrado");
+        }  finally {
+            db.endTransaction();
         }
         return valor;
     }
@@ -168,6 +172,8 @@ public class DBHelper extends SQLiteOpenHelper {
             }
         } catch (Exception e){
             Log.d(TAG, "Usuário não encontrado");
+        }  finally {
+            db.endTransaction();
         }
         return nome;
     }
@@ -194,6 +200,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db = this.getWritableDatabase();
         String[] args = {String.valueOf(u.getUsername())};
         retornoDB = db.delete(TABLE_USUARIO, COL_USERNAME+ "=?", args);
+        db.close();
         return retornoDB;
     }
 

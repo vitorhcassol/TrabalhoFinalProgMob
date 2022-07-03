@@ -21,14 +21,14 @@
             android:name=".Tela_Historico"
             android:exported="false" />
         <activity
-            android:name=".TelaLogin"
+            android:name=".TelaPerfil"
             android:exported="false" />
         <activity
             android:name=".TelaCadastro"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".TelaPerfil"
+            android:name=".TelaLogin"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
             <intent-filter>

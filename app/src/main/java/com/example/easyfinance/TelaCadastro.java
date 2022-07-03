@@ -71,6 +71,7 @@ public class TelaCadastro extends AppCompatActivity {
                     "Usuário cadastrado com sucesso", Toast.LENGTH_LONG);
             toast.show();
             limpar();
+            finish();
         }
     }
 
