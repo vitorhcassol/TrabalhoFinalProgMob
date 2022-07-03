@@ -83,7 +83,10 @@ public class TelaPerfil extends AppCompatActivity {
         bttAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeAdd();
+                user = helper.buscaUsuario(username);
+                Intent intent = new Intent(TelaPerfil.this,Tela_Adicionar.class);
+                intent.putExtra("chave_user",user);
+                startActivity(intent);
             }
         });
 
