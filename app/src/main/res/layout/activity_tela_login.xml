@@ -16,10 +16,8 @@
         android:layout_height="563dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="80dp"
-        android:layout_marginBottom="80dp"
         android:background="@drawable/box"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -100,25 +98,28 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textInputEditText2"
-        android:layout_width="220dp"
+        android:layout_width="320dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:hint="hint"
+        android:background="@drawable/box1"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="@+id/textUser" />
+        app:layout_constraintTop_toTopOf="@+id/textUser"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textInputEditText"
-        android:layout_width="220dp"
+        android:layout_width="320dp"
         android:layout_height="52dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:hint="hint"
+        android:background="@drawable/box1"
+        android:password="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="@+id/textSenha" />
+        app:layout_constraintTop_toTopOf="@+id/textSenha"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
         android:id="@+id/buttonLogin"
