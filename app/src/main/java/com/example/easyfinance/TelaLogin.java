@@ -18,6 +18,7 @@ public class TelaLogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_login);
+
         edtUsername = findViewById(R.id.textInputEditText2);
         edtSenha = findViewById(R.id.textInputEditText);
         bttLogin = findViewById(R.id.buttonLogin);
@@ -45,7 +46,7 @@ public class TelaLogin extends AppCompatActivity {
         String password = helper.buscaSenha(user);
         if(senha.equals(password)) {
             Intent intent = new Intent(this, TelaPerfil.class);
-            intent.putExtra("chave_usuario",user);
+            intent.putExtra("chave_usuario", user);
             startActivity(intent);
         } else {
             Toast toast = Toast.makeText(TelaLogin.this,

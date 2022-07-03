@@ -14,13 +14,17 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class TelaPerfil extends AppCompatActivity {
+    DBHelper helper = new DBHelper(this);
 
     private Button bttEdit;
     private Button bttHist;
     private Button bttAdd;
     private Button bttCamera;
+    private TextView txtViewNomeUsuario;
+    private Usuario user;
     private de.hdodenhof.circleimageview.CircleImageView image;
 
 
@@ -30,6 +34,8 @@ public class TelaPerfil extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_perfil);
 
+        Bundle args = getIntent().getExtras();
+        String username = args.getString("chave_usuario");
 
         if (ContextCompat.checkSelfPermission(TelaPerfil.this,
                 Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
@@ -50,11 +56,18 @@ public class TelaPerfil extends AppCompatActivity {
             }
         });
 
+        user = helper.buscaUsuario(username);
+        Intent intent = new Intent(TelaPerfil.this,Tela_EditaPerfil.class);
+        intent.putExtra("chave_user",user);
+
         bttEdit = findViewById(R.id.buttonEdit);
         bttEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeEdit();
+                user = helper.buscaUsuario(username);
+                Intent intent = new Intent(TelaPerfil.this,Tela_EditaPerfil.class);
+                intent.putExtra("chave_user",user);
+                startActivity(intent);
             }
         });
 
@@ -73,6 +86,9 @@ public class TelaPerfil extends AppCompatActivity {
                 changeAdd();
             }
         });
+
+        txtViewNomeUsuario = findViewById(R.id.NomeUsuario);
+        txtViewNomeUsuario.setText(username + ".");
     }
 
     private void changeEdit() {
@@ -87,6 +103,7 @@ public class TelaPerfil extends AppCompatActivity {
         Intent intent = new Intent(this, Tela_Adicionar.class);
         startActivity(intent);
     }
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

@@ -204,6 +204,35 @@ public class DBHelper extends SQLiteOpenHelper {
         return retornoDB;
     }
 
+    //retorna um objeto usuario a partir do nome dele
+    public Usuario buscaUsuario (String username) {
+        Usuario user = new Usuario();
+        db = this.getReadableDatabase();
+        String query = String.format("SELECT * FROM %s WHERE %s = ?",
+                TABLE_USUARIO, COL_USERNAME);
+        db.beginTransaction();
+        try{
+            Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(username)});
+            try {
+                while(cursor.moveToFirst()) {
+                    user.setUsername(cursor.getString(0));
+                    user.setNome(cursor.getString(1));
+                    user.setSenha(cursor.getString(2));
+                    db.setTransactionSuccessful();
+                }
+            }finally {
+                if(cursor!=null && !cursor.isClosed()) {
+                    cursor.close();
+                }
+            }
+        } catch (Exception e){
+            Log.d(TAG, "Usuário não encontrado");
+        }  finally {
+            db.endTransaction();
+        }
+        return user;
+    }
+
     // ======== MÉTODOS DA CLASSE TRANSAÇÃO ==========
 
     //insere uma transação no banco
@@ -228,9 +257,10 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
-    //busca transação
-    public ArrayList<Transacao> listaTransacoes() {
-        String[] colunas = {COL_NOMETRANSACAO, COL_VALOR, COL_DESCRICAO, COL_DATA, COL_USUARIO};
+    //lista todas as transação
+    public ArrayList<Transacao> listaTransacoes(Usuario u) {
+
+        String[] colunas = {COL_IDTRANSACAO, COL_NOMETRANSACAO, COL_VALOR, COL_DESCRICAO, COL_DATA, COL_USUARIO};
         Cursor cursor = getReadableDatabase().query(TABLE_TRANSACAO, colunas,
                 null, null, null, null, "upper(data)", null);
         ArrayList<Transacao> lista = new ArrayList<Transacao>();
@@ -242,6 +272,7 @@ public class DBHelper extends SQLiteOpenHelper {
             t.setDescricao(cursor.getString(3));
             t.setData(cursor.getString(4));
             t.setUsuario(cursor.getString(5));
+            lista.add(t);
         }
         return lista;
     }
