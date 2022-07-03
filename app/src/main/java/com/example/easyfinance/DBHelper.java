@@ -184,7 +184,6 @@ public class DBHelper extends SQLiteOpenHelper {
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
-        values.put(COL_USERNAME, u.getNome());
         values.put(COL_NOME, u.getNome());
         values.put(COL_SENHA, u.getSenha());
 
@@ -277,6 +276,5 @@ public class DBHelper extends SQLiteOpenHelper {
         return lista;
     }
 
-    //
 
 }

@@ -12,6 +12,7 @@ import android.widget.Toast;
 public class Tela_EditaPerfil extends AppCompatActivity {
     private EditText edtUsuario, edtNome, edtSenha, edtConfirmarSenha;
     private Usuario user;
+    private Usuario altUser;
     private Button bttSalvar;
     DBHelper helper = new DBHelper(this);
 
@@ -47,20 +48,23 @@ public class Tela_EditaPerfil extends AppCompatActivity {
                     toast.show();
 
                 }else{
-                    user.setNome(edtNome.getText().toString());
-                    user.setSenha(edtSenha.getText().toString());
+                    altUser = new Usuario();
+                    altUser.setUsername(user.getUsername());
+                    altUser.setNome(edtNome.getText().toString());
+                    altUser.setSenha(edtSenha.getText().toString());
 
-                    helper.atualizarUsuario(user);
+                    helper.atualizarUsuario(altUser);
 
-                    String name = user.getUsername();
+                    Toast toast = Toast.makeText(Tela_EditaPerfil.this,
+                            "Usuário atualizado com sucesso!",
+                            Toast.LENGTH_LONG);
+                    toast.show();
+
+                    String name = altUser.getUsername();
                     Intent intent2 = new Intent(Tela_EditaPerfil.this, TelaPerfil.class);
                     intent2.putExtra("chave_usuario", name);
                     startActivity(intent2);
-
                 }
-
-
-
             }
         });
 

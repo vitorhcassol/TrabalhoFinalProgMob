@@ -48,13 +48,7 @@ public class Tela_Adicionar extends AppCompatActivity {
                 Intent intent = new Intent(Tela_Adicionar.this,TelaPerfil.class);
                 intent.putExtra("chave_user",u);
                 startActivity(intent);
-
             }
         });
-
-
-
-
-
     }
 }
