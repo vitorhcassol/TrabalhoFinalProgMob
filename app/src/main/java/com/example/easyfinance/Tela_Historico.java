@@ -62,6 +62,7 @@ public class Tela_Historico extends AppCompatActivity {
                         arrayAdapterTransacao.getItem(i);
                 Intent intent = new Intent(Tela_Historico.this, Tela_EditaTransacao.class);
                 intent.putExtra("chave_transacao", transacaoSelecionada);
+                intent.putExtra("chave_user", user);
                 startActivity(intent);
             }
         });
