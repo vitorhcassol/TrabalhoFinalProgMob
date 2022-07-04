@@ -67,14 +67,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="40dp"
         android:fontFamily="@font/dm_sans"
         android:text="NOME"
         android:textColor="#030302"
         android:textSize="18dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="@+id/textUserSalvar" />
+        app:layout_constraintTop_toBottomOf="@+id/textUserSalvar" />
 
     <TextView
         android:id="@+id/textSenha"
@@ -108,7 +108,7 @@
         android:id="@+id/buttonTelaSalvar"
         android:layout_width="140dp"
         android:layout_height="50dp"
-        android:layout_marginStart="108dp"
+        android:layout_marginStart="24dp"
         android:layout_marginBottom="12dp"
         android:background="@drawable/corners"
         android:text="SALVAR"
@@ -117,17 +117,6 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         app:layout_constraintBottom_toBottomOf="@+id/textView"
         app:layout_constraintStart_toStartOf="@+id/textView" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textUserSalvar"
-        android:layout_width="320dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/box1"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="@+id/textUser"
-        tools:ignore="SpeakableTextPresentCheck" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textSenhaSalvar"
@@ -161,6 +150,34 @@
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toTopOf="@+id/textConfirmaSenha"
         tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/buttonGoToExclui"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/circle"
+        android:text="EXCLUIR"
+        android:textColor="#FBF6F6"
+        android:textColorHint="#000000"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textUserSalvar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/dm_sans"
+        android:text="NomeUsuario"
+        android:textColor="#030302"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textUser" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
