@@ -21,3 +21,6 @@ O usuario deverá ser capaz de filtrar as transações de acordo com o tipo ou n
 
 Mockup com as tela da aplicação
 https://www.figma.com/file/eeOLesAdo76fIQnOeZqBsg/Easy-Financy?node-id=0%3A1
+
+Link para o drive com o vídeo
+https://drive.google.com/drive/folders/1pbYZ1O8046nQoX-wV-oJnw4BFJh05_3m?usp=sharing
