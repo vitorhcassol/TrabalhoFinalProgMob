@@ -51,7 +51,7 @@ public class Tela_Adicionar extends AppCompatActivity {
                 toast.show();
 
                 Intent intent = new Intent(Tela_Adicionar.this, TelaPerfil.class);
-                intent.putExtra("chave_user",u);
+                intent.putExtra("chave_usuario", u.getUsername());
                 startActivity(intent);
             }
         });
