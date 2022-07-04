@@ -7,13 +7,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Tela_EditaPerfil extends AppCompatActivity {
-    private EditText edtUsuario, edtNome, edtSenha, edtConfirmarSenha;
+    private EditText edtNome, edtSenha, edtConfirmarSenha;
+    private TextView txtViewUsuario;
     private Usuario user;
     private Usuario altUser;
-    private Button bttSalvar;
+    private Button bttSalvar, bttExcluir;
     DBHelper helper = new DBHelper(this);
 
     @Override
@@ -24,14 +26,25 @@ public class Tela_EditaPerfil extends AppCompatActivity {
         Intent it=getIntent();
         user = (Usuario) it.getSerializableExtra("chave_user");
 
-        edtUsuario = findViewById(R.id.textUserSalvar);
+        txtViewUsuario = findViewById(R.id.textUserSalvar);
         edtNome = findViewById(R.id.textNomeSalvar);
         edtSenha = findViewById(R.id.textSenhaSalvar);
         edtConfirmarSenha = findViewById(R.id.textConfirmaSalvar);
 
-        edtUsuario.setText(user.getUsername());
+        txtViewUsuario.setText(user.getUsername());
         edtNome.setText(user.getNome());
         edtSenha.setText(user.getSenha());
+
+        //Botões e suas seguintes funções
+        bttExcluir = findViewById(R.id.buttonGoToExclui);
+        bttExcluir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent3 = new Intent(Tela_EditaPerfil.this, Tela_Exclusao.class);
+                intent3.putExtra("chave_usuario", user);
+                startActivity(intent3);
+            }
+        });
 
         bttSalvar = findViewById(R.id.buttonTelaSalvar);
         bttSalvar.setOnClickListener(new View.OnClickListener() {

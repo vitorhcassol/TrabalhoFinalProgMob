@@ -151,33 +151,6 @@ public class DBHelper extends SQLiteOpenHelper {
         return valor;
     }
 
-    //busca nome do usuário --- implementar na tela de perfil
-    public String buscarNomeUsuario(String username) {
-        db = this.getReadableDatabase();
-        String query = String.format("SELECT %s FROM %s WHERE %s = ?",
-                                    COL_NOME, TABLE_USUARIO, COL_USERNAME);
-        String nome = "nome não encontrado";
-        db.beginTransaction();
-        try{
-            Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(username)});
-            try {
-                if(cursor.moveToFirst()) {
-                    nome = cursor.getString(0);
-                    db.setTransactionSuccessful();
-                }
-            }finally {
-                if(cursor!=null && !cursor.isClosed()) {
-                    cursor.close();
-                }
-            }
-        } catch (Exception e){
-            Log.d(TAG, "Usuário não encontrado");
-        }  finally {
-            db.endTransaction();
-        }
-        return nome;
-    }
-
     //atualiza os dados de um usuário um usuário ---- implementar na tela de editar perfil
     public long atualizarUsuario (Usuario u) {
         long retornoDB;
@@ -294,5 +267,32 @@ public class DBHelper extends SQLiteOpenHelper {
             listaTransacao.add(t);
         }
         return listaTransacao;
+    }
+
+    //deleta a transacao de um usuario --- implementar na tela de editar transacao
+    public long excluirTransacao (Transacao t) {
+        long retornoDB;
+        db = this.getWritableDatabase();
+        String[] args = {String.valueOf(t.getIdTransacao())};
+        retornoDB = db.delete(TABLE_TRANSACAO, COL_IDTRANSACAO + " = ?", args);
+        db.close();
+        return retornoDB;
+    }
+
+    //atualiza os dados de uma transação ---- implementar na tela de editar transação
+    public long atualizarTransacao (Transacao t) {
+        long retornoDB;
+        db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(COL_NOMETRANSACAO, t.getNomeTransacao());
+        values.put(COL_VALOR, t.getValor());
+        values.put(COL_DESCRICAO, t.getDescricao());
+        values.put(COL_DATA, t.getData());
+
+        String[] args = {String.valueOf(t.getIdTransacao())};
+        retornoDB = db.update(TABLE_TRANSACAO, values, "idTransacao = ?", args);
+        db.close();
+        return retornoDB;
     }
 }
