@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">EasyFinance</string>
+
+    <string-array name="arraySpinner">
+        <item>Mês atual</item>
+        <item>3 meses</item>
+        <item>6 meses</item>
+        <item>1 ano</item>
+        <item>Todos</item>
+    </string-array>
 </resources>
