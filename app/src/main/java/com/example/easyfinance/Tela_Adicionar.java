@@ -43,7 +43,7 @@ public class Tela_Adicionar extends AppCompatActivity {
                 t.setValor(valor);
                 t.setDescricao(editDesc.getText().toString());
                 t.setData(editData.getText().toString());
-                //helper.insereTransacao(t);
+                helper.insereTransacao(t);
 
                 Toast toast = Toast.makeText(Tela_Adicionar.this,
                         "Transação adicionada com sucesso!",
