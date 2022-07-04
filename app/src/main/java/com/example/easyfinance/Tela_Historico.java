@@ -3,6 +3,7 @@ package com.example.easyfinance;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.Menu;
@@ -29,8 +30,6 @@ public class Tela_Historico extends AppCompatActivity {
     ArrayAdapter<Transacao> arrayAdapterTransacao;
 
     DBHelper helper = new DBHelper(this);
-    String[] opcoes ={"Mês atual", "3 meses", "6 meses", "1 ano"};
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,10 +37,10 @@ public class Tela_Historico extends AppCompatActivity {
 
         Intent it=getIntent();
         user = (Usuario) it.getSerializableExtra("chave_user");
-
+        Resources res = getResources();
+        String[] array = res.getStringArray(R.array.arraySpinner);
         filter = findViewById(R.id.spinner);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(Tela_Historico.this,
-                android.R.layout.simple_spinner_dropdown_item,opcoes);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(Tela_Historico.this, android.R.layout.simple_spinner_dropdown_item,array);
         filter.setAdapter(adapter);
 
         viewTransacao = findViewById(R.id.listaItens);

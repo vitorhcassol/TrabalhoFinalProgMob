@@ -47,8 +47,8 @@ public class TelaCadastro extends AppCompatActivity {
         String senha = edtSenha.getText().toString();
         String confirmaSenha = edtConfirmarSenha.getText().toString();
         Boolean confirmaUsername = helper.buscarUsername(username);
-
-        if(!senha.equals(confirmaSenha)){
+        if(senha.length()>=6){
+            if(!senha.equals(confirmaSenha)){
             Toast toast = Toast.makeText(TelaCadastro.this,
                     "Senha diferente da confirmação de senha!",
                     Toast.LENGTH_SHORT);
@@ -73,6 +73,13 @@ public class TelaCadastro extends AppCompatActivity {
             limpar();
             finish();
         }
+        }else{
+            Toast toast = Toast.makeText(TelaCadastro.this,
+                    "Senha deve conter no minimo 6 caracteres",
+                    Toast.LENGTH_SHORT);
+
+        }
+
     }
 
     public void limpar(){
